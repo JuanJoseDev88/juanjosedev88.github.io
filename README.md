@@ -1,4 +1,4 @@
-# Juan José Pérez - Mega Man Cyberpunk Portfolio
+# Juan José Pérez - Mega Man Cyberpunk Style Portfolio
 
 A futuristic, cyberpunk-themed portfolio website built with Astro, featuring Mega Man-inspired design elements, animated particles, and interactive effects.
 
