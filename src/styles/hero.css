@@ -1,0 +1,89 @@
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 2rem;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 900;
+    margin: 0.5rem 0;
+    background: linear-gradient(45deg, var(--megaman-blue), var(--cyber-green), var(--energy-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    color: var(--megaman-light-blue);
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px var(--shadow-color);
+}
+
+.hero .description {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Stage Select Frame */
+.stage-select {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 2rem;
+    position: relative;
+    background: rgba(0, 128, 255, 0.1);
+}
+
+.stage-select .portrait {
+    width: calc(100% - 30px);
+    height: calc(100% - 60px);
+    margin-top: 50px;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    position: inherit;
+}
+
+.stage-select:hover .portrait {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.stage-select .frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    filter: drop-shadow(0 0 10px var(--megaman-blue));
+    animation: framePulse 2s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}

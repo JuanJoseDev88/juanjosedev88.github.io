@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+    --megaman-blue: #0080ff;
+    --megaman-light-blue: #40a0ff;
+    --megaman-dark-blue: #0060cc;
+    --energy-pink: #ff0080;
+    --cyber-green: #00ff80;
+    --warning-orange: #ff8000;
+    --background-dark: #0a0a1a;
+    --background-grid: #1a1a2e;
+    --text-glow: #ffffff;
+    --shadow-color: rgba(0, 128, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', monospace;
+    background: var(--background-dark);
+    color: var(--text-glow);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Grid Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0, 128, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 128, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -2;
+    animation: gridMove 20s linear infinite;
+}
+
+/* Particles */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--megaman-blue);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 0 10px var(--megaman-blue);
+}
+
+/* Energy Bar */
+.energy-bar {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 10px;
+    height: 200px;
+    background: rgba(0, 128, 255, 0.2);
+    border: 2px solid var(--megaman-blue);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.energy-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(0deg, var(--cyber-green), var(--megaman-blue));
+    transition: height 0.3s ease;
+    animation: energyPulse 2s ease-in-out infinite;
+}
+
+/* Mega Man Style Buttons */
+.mega-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+    font-size: 1rem;
+}
+
+.mega-button.primary {
+    background: linear-gradient(135deg, var(--megaman-blue), var(--megaman-dark-blue));
+    color: white;
+    box-shadow: 
+        0 0 20px var(--shadow-color),
+        inset 0 2px 0 rgba(255,255,255,0.3),
+        inset 0 -2px 0 rgba(0,0,0,0.3);
+}
+
+.mega-button.secondary {
+    background: linear-gradient(135deg, var(--energy-pink), #cc0066);
+    color: white;
+    box-shadow: 
+        0 0 20px rgba(255, 0, 128, 0.5),
+        inset 0 2px 0 rgba(255,255,255,0.3),
+        inset 0 -2px 0 rgba(0,0,0,0.3);
+}
+
+.mega-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.mega-button:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.mega-button:hover::before {
+    left: 100%;
+}
+
+.mega-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: var(--megaman-blue);
+    text-shadow: 0 0 20px var(--shadow-color);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--megaman-blue), var(--cyber-green));
+    border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .energy-bar {
+        display: none;
+    }
+}
