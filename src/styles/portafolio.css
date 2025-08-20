@@ -481,6 +481,7 @@ nav {
     margin-top: 4rem;
 }
 
+
 .project-card {
     background: 
         linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
@@ -495,6 +496,91 @@ nav {
         0 8px 32px rgba(0, 0, 0, 0.12),
         0 2px 8px rgba(0, 0, 0, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+
+
+/* Flip card: accessible CSS-only flip behavior (scoped to avoid breaking existing styles) */
+.project-card.flip-card {
+    perspective: 1200px; /* enable 3D space */
+}
+
+.project-card.flip-card .flip-card-inner {
+    position: relative;
+    width: 100%;
+    /* let content define height to avoid collapsing the card */
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project-card.flip-card .flip-card-front {
+    position: relative;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.project-card.flip-card .flip-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+.project-card.flip-card .flip-card-back {
+    transform: rotateY(180deg);
+    pointer-events: none; /* don't capture clicks when hidden */
+    opacity: 0;
+}
+
+.project-card.flip-card.is-flipped .flip-card-back {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.project-card.flip-card .flip-card-front {
+    transform: rotateY(0deg);
+}
+
+.project-card.flip-card .flip-card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, rgba(0,0,0,0.6), rgba(10,10,10,0.6));
+}
+
+/* Toggle: hover, focus-within for keyboard users, or the .is-flipped class for JS control */
+.project-card.flip-card {
+    cursor: pointer;
+}
+
+/* Toggle: only JS-driven .is-flipped class will flip the card. This avoids accidental hover flips. */
+.project-card.flip-card.is-flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.project-card.flip-card .flip-card-back .project-content {
+    padding: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+.project-card.flip-card .flip-card-back .tag {
+    background: rgba(255,255,255,0.08);
+}
+
+/* Ensure correct stacking so front content is visible until flipped */
+.project-card.flip-card .flip-card-front {
+    z-index: 2;
+}
+.project-card.flip-card .flip-card-back {
+    z-index: 1;
+    transform: rotateY(180deg);
 }
 
 .project-card::before {
@@ -579,6 +665,13 @@ nav {
     backdrop-filter: blur(10px);
 }
 
+/* allow project content to grow and fill available vertical space inside the card */
+.project-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
 .project-content h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -605,6 +698,8 @@ nav {
     font-size: 0.8rem;
     font-weight: 700;
 }
+
+/* .flip-card placeholder removed to allow cards to size naturally; use .project-card.flip-card for flip behavior */
 
 /* Stage Select Frame */
 .stage-select {

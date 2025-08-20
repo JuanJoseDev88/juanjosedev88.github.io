@@ -1,29 +1,44 @@
-// Handles flip card interaction: click to flip, Enter/Space to toggle for keyboard users
+// Toggle .is-flipped on click / keyboard (Enter / Space). Manage aria-pressed and Escape to close.
 (function () {
   function toggleFlip(card) {
     const isFlipped = card.classList.toggle('is-flipped');
-    card.setAttribute('aria-pressed', isFlipped ? 'true' : 'false');
+    try { card.setAttribute('aria-pressed', isFlipped ? 'true' : 'false'); } catch (e) {}
+  }
+
+  function closeFlip(card) {
+    if (card.classList.contains('is-flipped')) {
+      card.classList.remove('is-flipped');
+      try { card.setAttribute('aria-pressed', 'false'); } catch (e) {}
+    }
   }
 
   function init() {
-    const cards = document.querySelectorAll('.flip-card');
+    const cards = Array.from(document.querySelectorAll('.project-card.flip-card'));
+    if (!cards.length) return;
+
     cards.forEach(card => {
-      card.addEventListener('click', () => toggleFlip(card));
+      // Click/tap toggles
+      card.addEventListener('click', (e) => {
+        // Only toggle when clicking the card itself (not selecting links inside)
+        const targetIsLink = e.target.closest('a');
+        if (targetIsLink) return;
+        toggleFlip(card);
+      });
+
+      // Keyboard: Enter/Space toggles, Escape closes
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           toggleFlip(card);
-        } else if (e.key === 'Escape' && card.classList.contains('is-flipped')) {
-          // close on escape
-          toggleFlip(card);
+        } else if (e.key === 'Escape') {
+          closeFlip(card);
         }
       });
 
-      // Optional: close when clicking outside
+      // Close when clicking outside the flipped card
       document.addEventListener('click', (e) => {
         if (!card.contains(e.target) && card.classList.contains('is-flipped')) {
-          card.classList.remove('is-flipped');
-          card.setAttribute('aria-pressed', 'false');
+          closeFlip(card);
         }
       });
     });

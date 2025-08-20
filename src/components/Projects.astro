@@ -14,28 +14,40 @@ const text = getPortafolioTextContent(lang).projects;
 		<h2 class="section-title">{text.title}</h2>
 		<div class="projects-grid">
 			{text.projectCards.map(project => (
-				<div class="project-card">
-					<div class="project-image">
-						{project.icon && project.icon.startsWith && project.icon.startsWith('/') ? (
-							<img src={project.icon} alt={project.title} />
-						) : (
-							<span class="fallback-icon">{project.icon}</span>
-						)}
-					</div>
-					<div class="project-content">
-						<h3>{project.title}</h3>
-						<p>{project.description}</p>
-						<div class="project-tags">
-							{project.tags.map(tag => (
-								<span class="tag">{tag}</span>
-							))}
+				<div class="project-card flip-card" tabindex="0" role="button" aria-pressed="false" aria-label={"Toggle " + project.title + " details"}>
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<div class="project-image">
+								{project.icon && project.icon.startsWith && project.icon.startsWith('/') ? (
+									<img src={project.icon} alt={project.title} />
+								) : (
+									<span class="fallback-icon">{project.icon}</span>
+								)}
+							</div>
+							<div class="project-content">
+								<h3>{project.title}</h3>
+								<p>{project.description}</p>
+								<div class="project-tags">
+									{project.tags.map(tag => (
+										<span class="tag">{tag}</span>
+									))}
+								</div>
+								<a href={project.link} class="mega-button primary" style="font-size: 0.9rem; padding: 0.8rem 1.5rem;" target="_blank" rel="noopener">
+									{project.buttonText}
+								</a>
+							</div>
 						</div>
-						<a href={project.link} class="mega-button primary" style="font-size: 0.9rem; padding: 0.8rem 1.5rem;" target="_blank" rel="noopener">
-							{project.buttonText}
-						</a>
+
+						<div class="flip-card-back">
+							<div class="project-content">
+								<p>Test text content</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			))}
 		</div>
 	</div>
-</section>
+	</section>
+
+<script type="module" src="/scripts/projectFlip.js" defer></script>
