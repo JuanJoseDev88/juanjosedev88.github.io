@@ -1,0 +1,32 @@
+---
+import { getPortafolioTextContent } from '../utils/i18n';
+
+export interface Props {
+	lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const text = getPortafolioTextContent(lang).contact;
+---
+
+<section class="contact" id="contacto">
+	<h2 class="section-title">{text.title}</h2>
+	<p>{text.description}</p>
+	
+	<form class="contact-form">
+		<div class="form-group">
+			<label for="nombre">{text.form.name}</label>
+			<input type="text" id="nombre" name="nombre" required>
+		</div>
+		<div class="form-group">
+			<label for="email">{text.form.email}</label>
+			<input type="email" id="email" name="email" required>
+		</div>
+		<div class="form-group">
+			<label for="mensaje">{text.form.message}</label>
+			<textarea id="mensaje" name="mensaje" required></textarea>
+		</div>
+		<button type="submit" class="mega-button primary">{text.form.submit}</button>
+	</form>
+</section>
+

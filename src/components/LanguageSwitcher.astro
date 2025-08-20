@@ -1,0 +1,33 @@
+---
+export interface Props {
+    currentLang: "es" | "en";
+}
+
+const { currentLang } = Astro.props;
+---
+
+<div class="language-switcher">
+    <button
+        class={`lang-btn ${currentLang === "es" ? "active" : ""}`}
+        data-lang="es"
+        aria-label="Cambiar a español"
+    >
+        ES
+    </button>
+    <button
+        class={`lang-btn ${currentLang === "en" ? "active" : ""}`}
+        data-lang="en"
+        aria-label="Switch to English"
+    >
+        EN
+    </button>
+</div>
+
+<style>
+    @import '../styles/languageSwitcher.css';
+</style>
+
+<script>
+    import { initializeLanguageSwitcher } from "../scripts/languageSwitcher";
+    document.addEventListener("DOMContentLoaded", initializeLanguageSwitcher);
+</script>

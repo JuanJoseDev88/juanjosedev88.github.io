@@ -1,0 +1,189 @@
+.carousel-container {
+	position: relative;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.carousel-wrapper {
+	overflow: hidden;
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-track {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+}
+
+.project-card {
+	min-width: 100%;
+	background: white;
+	display: flex;
+	align-items: center;
+	gap: 3rem;
+	padding: 2rem;
+}
+
+.project-image {
+	flex: 1;
+	height: 300px;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.image-placeholder {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.project-content {
+	flex: 1;
+	padding: 0;
+}
+
+.project-content h3 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	color: #333;
+}
+
+.project-content p {
+	color: #666;
+	margin-bottom: 1.5rem;
+	line-height: 1.7;
+	font-size: 1.1rem;
+}
+
+.project-tech {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-bottom: 2rem;
+}
+
+.tech-badge {
+	background: #f3f4f6;
+	color: #374151;
+	padding: 0.5rem 1rem;
+	border-radius: 20px;
+	font-size: 0.9rem;
+	font-weight: 500;
+	transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+	background: #2563eb;
+	color: white;
+}
+
+.project-links {
+	display: flex;
+	gap: 1rem;
+}
+
+.project-links .btn {
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+}
+
+.carousel-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(255, 255, 255, 0.9);
+	border: none;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	font-size: 1.5rem;
+	color: #2563eb;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	z-index: 10;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-btn:hover {
+	background: white;
+	transform: translateY(-50%) scale(1.1);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-btn-prev {
+	left: -25px;
+}
+
+.carousel-btn-next {
+	right: -25px;
+}
+
+.carousel-indicators {
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-top: 2rem;
+}
+
+.indicator {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border: none;
+	background: #d1d5db;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.indicator.active {
+	background: #2563eb;
+	transform: scale(1.2);
+}
+
+.indicator:hover {
+	background: #6b7280;
+}
+
+@media (max-width: 768px) {
+	.project-card {
+		flex-direction: column;
+		gap: 1.5rem;
+		padding: 1.5rem;
+	}
+
+	.project-image {
+		height: 200px;
+	}
+
+	.project-content h3 {
+		font-size: 1.5rem;
+	}
+
+	.project-content p {
+		font-size: 1rem;
+	}
+
+	.project-links {
+		flex-direction: column;
+	}
+
+	.carousel-btn {
+		width: 40px;
+		height: 40px;
+		font-size: 1.2rem;
+	}
+
+	.carousel-btn-prev {
+		left: 10px;
+	}
+
+	.carousel-btn-next {
+		right: 10px;
+	}
+}

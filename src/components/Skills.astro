@@ -1,0 +1,24 @@
+---
+import { getPortafolioTextContent } from '../utils/i18n';
+
+export interface Props {
+	lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const text = getPortafolioTextContent(lang).skills;
+---
+
+<section class="skills" id="habilidades">
+	<h2 class="section-title">{text.title}</h2>
+	<div class="skills-grid">
+		{text.skillCards.map(skill => (
+			<div class="skill-card">
+				<div class="skill-icon">{skill.icon}</div>
+				<h3>{skill.title}</h3>
+				<p>{skill.description}</p>
+			</div>
+		))}
+	</div>
+</section>
+

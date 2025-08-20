@@ -1,22 +1,106 @@
-<!doctype html>
-<html lang="en">
+---
+import { getPortafolioTextContent } from "../utils/i18n";
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import "../styles/portafolio.css";
+
+export interface Props {
+	title?: string;
+	description?: string;
+	lang?: 'es' | 'en';
+}
+
+const { 
+	lang = 'es',
+	title,
+	description
+} = Astro.props;
+
+const text = getPortafolioTextContent(lang);
+
+const finalTitle = title || `${text.hero.name} - ${text.hero.title}`;
+const finalDescription = description || text.hero.description;
+
+// SEO and meta variables from textContent
+const siteName = text.hero.name;
+const siteUrl = text.seo.siteUrl;
+const author = text.hero.name;
+const keywords = text.seo.keywords;
+const ogImage = `${siteUrl}${text.seo.ogImage}`;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={finalDescription} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content={author} />
+		<meta name="keywords" content={keywords} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:title" content={finalTitle} />
+		<meta property="og:description" content={finalDescription} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:site_name" content={siteName} />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={siteUrl} />
+		<meta property="twitter:title" content={finalTitle} />
+		<meta property="twitter:description" content={finalDescription} />
+		<meta property="twitter:image" content={ogImage} />
+		
+		<!-- Favicon -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		
+		<!-- Canonical URL -->
+		<link rel="canonical" href={siteUrl} />
+		
+		<title>{finalTitle}</title>
 	</head>
 	<body>
-		<slot />
+		<div class="particles" id="particles"></div>
+		
+		<div class="energy-bar">
+			<div class="energy-fill" id="energyFill"></div>
+		</div>
+		
+		<header>
+			<nav>
+				<div class="logo">{text.navigation.logo}</div>
+				<ul class="nav-links">
+					<li><a href="#inicio">{text.navigation.home}</a></li>
+					<li><a href="#habilidades">{text.navigation.skills}</a></li>
+					<li><a href="#proyectos">{text.navigation.projects}</a></li>
+					<li><a href="#contacto">{text.navigation.contact}</a></li>
+				</ul>
+				<LanguageSwitcher currentLang={lang} />
+			</nav>
+		</header>
+		
+		<main>
+			<slot />
+		</main>
+		
+		<footer>
+			<div class="social-links">
+				<a href="mailto:juanjose.perez88@email.com" class="social-link"><span>📧</span></a>
+				<a href="https://linkedin.com/in/juanjoseperez88" class="social-link">
+					<img src="/icons-linkedIn.png" alt="LinkedIn Profile" width="24" height="24" />
+				</a>
+				<a href="https://github.com/juanp88" class="social-link">
+					<img src="/icons-github.png" alt="GitHub Profile" width="24" height="24" />
+				</a>
+			</div>
+			<p>{text.footer.copyright}</p>
+		</footer>
+		
+		<script>
+			import { initializePortfolioEffects } from "../scripts/portfolioEffects";
+			document.addEventListener("DOMContentLoaded", initializePortfolioEffects);
+		</script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
