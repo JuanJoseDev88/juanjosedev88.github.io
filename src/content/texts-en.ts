@@ -44,7 +44,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
     title: "PROJECTS",
     projectCards: [
       {
-        icon: "/portfolio/logos/swag golf.PNG",
+        icon: "/logos/swag golf.PNG",
         title: "Swag App",
         description: "Complete e-commerce app with Stripe payment integration, P2P commerce, video streaming, and more.",
         tags: ["Flutter", "Firebase", "Stripe", "Android", "iOS"],
@@ -52,7 +52,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         link: "https://swag.golf/pages/swag-golf-app?srsltid=AfmBOor4-tkVsGtWxc8BedFRMbcBWaxoU0COryBlT1mxfgjSnrD_O74a"
       },
       {
-        icon: "/portfolio/logos/LogoBancolombia.png",
+        icon: "/logos/LogoBancolombia.png",
         title: "Bancolombia App",
         description: "Mobile application for managing accounts and banking transactions with Bancolombia.",
         tags: ["Flutter", "AWS", "Android", "iOS"],
@@ -60,7 +60,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         link: "https://www.bancolombia.com/centro-de-ayuda/canales/app-bancolombia"
       },
       {
-        icon: "/portfolio/logos/hyphenlogo.png",
+        icon: "/logos/hyphenlogo.png",
         title: "Hyphen App",
         description: "Migration to Flutter of home inspection application with order management, process tracking, and data synchronization.",
         tags: ["Flutter", "MySQL", "Android", "iOS"],
@@ -68,7 +68,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         link: "https://info.hyphensolutions.com/products/"
       },
       {
-        icon: "/portfolio/logos/paysafeLogo.png",
+        icon: "/logos/paysafeLogo.png",
         title: "Paysafe App",
         description: "Integration of Venmo payment processor for digital banking application.",
         tags: ["Android", "Kotlin", "Venmo SDK"],
@@ -76,7 +76,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         link: "https://play.google.com/store/apps/details?id=at.paysafecard.android&hl=en"
       },
       {
-        icon: "/portfolio/logos/coughdroplogo.png",
+        icon: "/logos/coughdroplogo.png",
         title: "Coughdrop",
         description: "Update and stabilization of legacy fullstack application.",
         tags: ["Ember JS", "Ruby on Rails", "Postgress", "AWS", "Cordova", "Android", "iOS"],
