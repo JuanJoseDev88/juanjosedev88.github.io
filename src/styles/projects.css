@@ -246,3 +246,110 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Simple Scroll-Snap Carousel - Add to your existing CSS */
+
+/* Replace your projects-grid with this carousel */
+.projects-carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.projects-carousel::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Each project card in carousel */
+.projects-carousel .project-card {
+    flex: 0 0 auto;
+    width: 350px; /* Fixed width for consistency */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+/* Show multiple cards on larger screens */
+@media (min-width: 1200px) {
+    .projects-carousel {
+        /* Show ~3 cards at a time */
+        max-width: calc(350px * 3 + 2rem * 2 + 4rem); /* 3 cards + gaps + padding */
+        margin: 4rem auto 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .projects-carousel {
+        /* Show ~2 cards at a time */
+        max-width: calc(350px * 2 + 2rem + 4rem); /* 2 cards + gap + padding */
+        margin: 4rem auto 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .projects-carousel {
+        /* Show 1 card at a time on mobile */
+        max-width: calc(350px + 4rem); /* 1 card + padding */
+        margin: 4rem auto 0;
+        gap: 1rem;
+    }
+    
+    .projects-carousel .project-card {
+        width: 300px;
+    }
+}
+
+/* Optional: Add navigation buttons */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.carousel-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(0, 255, 128, 0.1);
+    border: 1px solid rgba(0, 255, 128, 0.3);
+    border-radius: 25px;
+    color: var(--cyber-green);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 255, 128, 0.2);
+    border-color: rgba(0, 255, 128, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Reusable for other sections */
+.scroll-carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 2rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scroll-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-carousel .card-item {
+    flex: 0 0 auto;
+    width: 350px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}

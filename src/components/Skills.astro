@@ -11,7 +11,7 @@ const text = getPortafolioTextContent(lang).skills;
 
 <section class="skills" id="habilidades">
 	<h2 class="section-title">{text.title}</h2>
-	<div class="skills-grid">
+	<div class="scroll-carousel">
 		{text.skillCards.map(skill => (
 			<div class="skill-card">
 				<div class="skill-icon">{skill.icon}</div>
@@ -19,6 +19,16 @@ const text = getPortafolioTextContent(lang).skills;
 				<p>{skill.description}</p>
 			</div>
 		))}
+	</div>
+	
+	<!-- Optional: Add navigation buttons -->
+	<div class="carousel-nav">
+		<button class="carousel-btn" onclick="document.querySelector('#habilidades .scroll-carousel').scrollBy({left: -370, behavior: 'smooth'})">
+			← Previous
+		</button>
+		<button class="carousel-btn" onclick="document.querySelector('#habilidades .scroll-carousel').scrollBy({left: 370, behavior: 'smooth'})">
+			Next →
+		</button>
 	</div>
 </section>
 

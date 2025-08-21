@@ -71,3 +71,10 @@
         grid-template-columns: 1fr;
     }
 }
+
+.skills .scroll-carousel .skill-card {
+    flex: 0 0 auto;
+    width: 300px; /* Adjust this width as needed */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}

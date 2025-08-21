@@ -12,7 +12,8 @@ const text = getPortafolioTextContent(lang).projects;
 <section class="projects" id="proyectos">
 	<div class="projects-container">
 		<h2 class="section-title">{text.title}</h2>
-		<div class="projects-grid">
+		
+		<div class="projects-carousel">
 			{text.projectCards.map(project => (
 				<div class="project-card flip-card" tabindex="0" role="button" aria-pressed="false" aria-label={"Toggle " + project.title + " details"}>
 					<div class="flip-card-inner">
@@ -37,17 +38,25 @@ const text = getPortafolioTextContent(lang).projects;
 								</a>
 							</div>
 						</div>
-
 						<div class="flip-card-back">
 							<div class="project-content">
-								<p>Test text content</p>
+								<p>{project.backContent}</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			))}
 		</div>
+		
+		<div class="carousel-nav">
+			<button class="carousel-btn" onclick="document.querySelector('.projects-carousel').scrollBy({left: -370, behavior: 'smooth'})">
+				← Previous
+			</button>
+			<button class="carousel-btn" onclick="document.querySelector('.projects-carousel').scrollBy({left: 370, behavior: 'smooth'})">
+				Next →
+			</button>
+		</div>
 	</div>
-	</section>
+</section>
 
 <script type="module" src="/scripts/projectFlip.js" defer></script>

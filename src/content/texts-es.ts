@@ -30,6 +30,8 @@ export interface PortafolioTextContent {
       tags: string[];
       buttonText: string;
       link: string;
+      backContent: string;
+
     }[];
   };
   contact: {
@@ -101,7 +103,9 @@ export const portafolioTextContent: PortafolioTextContent = {
         description: "App e-commerce con integración de pagos stripe, comercio p2p, video streaming y más.",
         tags: ["Flutter", "Firebase", "Stripe", "Android", "iOS"],
         buttonText: "VER PROYECTO",
-        link: "https://swag.golf/pages/swag-golf-app?srsltid=AfmBOor4-tkVsGtWxc8BedFRMbcBWaxoU0COryBlT1mxfgjSnrD_O74a"
+        link: "https://swag.golf/pages/swag-golf-app?srsltid=AfmBOor4-tkVsGtWxc8BedFRMbcBWaxoU0COryBlT1mxfgjSnrD_O74a",
+        backContent: "Proyecto de e-commerce con integración de pagos stripe, comercio p2p, video streaming y más."
+
       },
       {
         icon: "/logos/LogoBancolombia.png",
@@ -109,7 +113,8 @@ export const portafolioTextContent: PortafolioTextContent = {
         description: "Aplicación móvil para la gestión de cuentas y transacciones bancarias Bancolombia",
         tags: ["Flutter", "AWS", "Android", "iOS"],
         buttonText: "VER PROYECTO",
-        link: "https://www.bancolombia.com/centro-de-ayuda/canales/app-bancolombia"
+        link: "https://www.bancolombia.com/centro-de-ayuda/canales/app-bancolombia",
+        backContent: ""
       },
       {
         icon: "/logos/hyphenlogo.png",
@@ -117,7 +122,8 @@ export const portafolioTextContent: PortafolioTextContent = {
         description: "Migración a Flutter de aplicación de home inspection con administración de ordenes, seguimiento de procesos y sincronización de datos",
         tags: ["Flutter", "MySQL", "Android", "iOS"],
         buttonText: "VER PROYECTO",
-        link: "https://info.hyphensolutions.com/products/"
+        link: "https://info.hyphensolutions.com/products/",
+        backContent: ""
       },
       {
         icon: "/logos/paysafeLogo.png",
@@ -125,7 +131,8 @@ export const portafolioTextContent: PortafolioTextContent = {
         description: "Integración de procesador de pagos Venmo para apliación de digital banking",
         tags: ["Android", "Kotlin", "Venmo SDK"],
         buttonText: "VER PROYECTO",
-        link: "https://play.google.com/store/apps/details?id=at.paysafecard.android&hl=es_CO"
+        link: "https://play.google.com/store/apps/details?id=at.paysafecard.android&hl=es_CO",
+        backContent: ""
       },
       {
         icon: "/logos/coughdroplogo.png",
@@ -133,16 +140,18 @@ export const portafolioTextContent: PortafolioTextContent = {
         description: "Actualización y estabilización de aplicación fullstack legacy",
         tags: ["Ember JS", "Ruby on Rails", "Postgress", "AWS", "Cordova", "Android", "iOS"],
         buttonText: "VER PROYECTO",
-        link: "https://www.coughdrop.com/"
+        link: "https://www.coughdrop.com/",
+        backContent: ""
       },
        {
-        icon: "",
-        title: "Otros proyectos",
-        description: "",
-        tags: [""],
-        buttonText: "Ver más",
-        link: ""
-      }
+         icon: "",
+         title: "Otros proyectos",
+         description: "",
+         tags: [""],
+         buttonText: "Ver más",
+         link: "",
+         backContent: ""
+       }
     ]
   },
   contact: {
