@@ -2,7 +2,7 @@
 import { getPortafolioTextContent } from '../utils/i18n';
 import { Image } from 'astro:assets';
 import heroPortrait from '../assets/hero-portrait.jpg';
-import frame2 from '../assets/frame2.png';
+import frame from '../assets/frame.png';
 
 export interface Props {
 	lang?: 'es' | 'en';
@@ -16,7 +16,7 @@ const text = getPortafolioTextContent(lang).hero;
 	<div class="hero-content">
 		<div class="stage-select">
 			<Image class="portrait" src={heroPortrait} alt="Portrait placeholder" />
-			<Image class="frame" src={frame2} alt="Decorative frame" />
+			<Image class="frame" src={frame} alt="Decorative frame" />
 		</div>
 		<h1>{text.name}</h1>
 		<p class="subtitle">{text.title}</p>
