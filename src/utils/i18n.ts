@@ -20,30 +20,32 @@ export function getCurrentLanguage(): Language {
     if (stored && ['es', 'en'].includes(stored)) {
       return stored;
     }
-    
-    // Detect browser language
+
     const browserLang = navigator.language.toLowerCase();
     if (browserLang.startsWith('en')) {
       return 'en';
     }
   }
   
-  return 'es'; // Default to Spanish
+  return 'es'; 
 }
 
 export function setLanguage(language: Language): void {
   if (typeof window !== 'undefined') {
     localStorage.setItem('language', language);
     
-    // Get the current path without language prefix
     const path = window.location.pathname;
-    const currentLang = path === '/' ? 'es' : path.startsWith('/en') ? 'en' : 'es';
     
-    if (language === currentLang) {
-      window.location.reload();
+    let targetUrl = '/';
+    
+    if (path === '/' || path === '/en') {
+      targetUrl = language === 'en' ? '/en' : '/';
+    } else if (path === '/projects' || path === '/projects-en') {
+      targetUrl = language === 'en' ? '/projects-en' : '/projects';
     } else {
-      // Redirect to the correct language path
-      window.location.href = language === 'en' ? '/en' : '/';
+      targetUrl = language === 'en' ? '/en' : '/';
     }
+    
+    window.location.href = targetUrl;
   }
 }

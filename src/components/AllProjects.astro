@@ -1,0 +1,81 @@
+---
+import { getPortafolioTextContent } from '../utils/i18n';
+import '../styles/allProjects.css';
+
+export interface Props {
+	lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const text = getPortafolioTextContent(lang).allProjects;
+---
+
+<section class="all-projects">
+	<div class="all-projects-container">
+		<div class="projects-header">
+			<a href={lang === 'en' ? '/en' : '/'} class="back-home-btn">
+				<span class="back-icon">←</span>
+				{text.backToHome}
+			</a>
+			<h1 class="page-title">{text.title}</h1>
+			<p class="page-subtitle">{text.subtitle}</p>
+		</div>
+		
+		<div class="all-projects-grid">
+			{text.projects.map(project => (
+				<article class="detailed-project-card">
+					<div class="project-header">
+						<div class="project-icon">
+							{project.icon && project.icon.startsWith && project.icon.startsWith('/') ? (
+								<img src={project.icon} alt={project.title} />
+							) : (
+								<span class="fallback-icon">{project.icon}</span>
+							)}
+						</div>
+						<div class="project-meta">
+							<h3 class="project-title">{project.title}</h3>
+							<div class="project-info">
+								<span class="project-year">{project.year}</span>
+								<span class="project-status" data-status={project.status.toLowerCase()}>{project.status}</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="project-description">
+						<p class="short-description">{project.description}</p>
+						<p class="full-description">{project.fullDescription}</p>
+					</div>
+					
+					<div class="project-technologies">
+						<h4 class="tech-title">{lang === 'en' ? 'Technologies:' : 'Tecnologías:'}</h4>
+						<div class="tech-grid">
+							{project.technologies.map(tech => (
+								<span class="tech-tag">{tech}</span>
+							))}
+						</div>
+					</div>
+					
+					<div class="project-actions">
+						{project.link && (
+							<a href={project.link} class="mega-button primary" target="_blank" rel="noopener">
+								{project.buttonText}
+							</a>
+						)}
+						{project.githubLink && (
+							<a href={project.githubLink} class="mega-button secondary" target="_blank" rel="noopener">
+								<span class="github-icon">🔗</span>
+								GitHub
+							</a>
+						)}
+						{project.demoLink && (
+							<a href={project.demoLink} class="mega-button secondary" target="_blank" rel="noopener">
+								<span class="demo-icon">🚀</span>
+								Demo
+							</a>
+						)}
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</section>

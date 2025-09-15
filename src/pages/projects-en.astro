@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AllProjects from '../components/AllProjects.astro';
+import { getPortafolioTextContent } from '../utils/i18n';
+
+const lang = 'en';
+const text = getPortafolioTextContent(lang);
+const title = `${text.allProjects.title} - ${text.hero.name}`;
+const description = text.allProjects.subtitle;
+---
+
+<Layout 
+	title={title}
+	description={description}
+	lang={lang}
+>
+	<AllProjects lang={lang} />
+</Layout>

@@ -6,15 +6,18 @@ export interface Props {
 }
 
 const { lang = 'es' } = Astro.props;
-const text = getPortafolioTextContent(lang).projects;
+const text = getPortafolioTextContent(lang).allProjects;
+
+// Get first 5 projects for homepage display
+const homeProjects = text.projects.slice(0, 5);
 ---
 
 <section class="projects" id="proyectos">
 	<div class="projects-container">
-		<h2 class="section-title">{text.title}</h2>
+		<h2 class="section-title">{lang === 'en' ? 'PROJECTS' : 'PROYECTOS'}</h2>
 		
 		<div class="projects-grid">
-			{text.projectCards.map(project => (
+			{homeProjects.map(project => (
 				<div class="project-card flip-card" tabindex="0" role="button" aria-pressed="false" aria-label={"Toggle " + project.title + " details"}>
 					<div class="flip-card-inner">
 						<div class="flip-card-front">
@@ -40,12 +43,44 @@ const text = getPortafolioTextContent(lang).projects;
 						</div>
 						<div class="flip-card-back">
 							<div class="project-content">
-								<p>{project.backContent}</p>
+								<p>{project.fullDescription}</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			))}
+			
+			{/* Show More Card */}
+			<div class="project-card flip-card" tabindex="0" role="button" aria-pressed="false" aria-label={"Toggle " + text.showMoreCard.title + " details"}>
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<div class="project-image">
+							{text.showMoreCard.icon && text.showMoreCard.icon.startsWith && text.showMoreCard.icon.startsWith('/') ? (
+								<img src={text.showMoreCard.icon} alt={text.showMoreCard.title} />
+							) : (
+								<span class="fallback-icon">{text.showMoreCard.icon}</span>
+							)}
+						</div>
+						<div class="project-content">
+							<h3>{text.showMoreCard.title}</h3>
+							<p>{text.showMoreCard.description}</p>
+							<div class="project-tags">
+								{text.showMoreCard.tags.map(tag => (
+									<span class="tag">{tag}</span>
+								))}
+							</div>
+							<a href={text.showMoreCard.link} class="mega-button primary" style="font-size: 0.9rem; padding: 0.8rem 1.5rem;">
+								{text.showMoreCard.buttonText}
+							</a>
+						</div>
+					</div>
+					<div class="flip-card-back">
+						<div class="project-content">
+							<p>{text.showMoreCard.backContent}</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

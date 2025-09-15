@@ -1,0 +1,362 @@
+/* All Projects Page Styles */
+.all-projects {
+    min-height: 100vh;
+    padding: 2rem;
+    background: 
+        radial-gradient(circle at 25% 50%, rgba(0, 255, 128, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 30%, rgba(255, 0, 128, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(0, 128, 255, 0.05) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.1));
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+.all-projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.02) 50%, transparent 70%),
+        radial-gradient(ellipse at center, rgba(0, 128, 255, 0.03) 0%, transparent 70%);
+    animation: liquidFlow 20s ease-in-out infinite;
+    z-index: 0;
+}
+
+.all-projects-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Styles */
+.projects-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-top: 2rem;
+}
+
+.back-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(0, 255, 128, 0.1);
+    border: 1px solid rgba(0, 255, 128, 0.3);
+    border-radius: 25px;
+    color: var(--cyber-green);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.back-home-btn:hover {
+    background: rgba(0, 255, 128, 0.2);
+    border-color: rgba(0, 255, 128, 0.5);
+    transform: translateY(-2px);
+}
+
+.back-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.back-home-btn:hover .back-icon {
+    transform: translateX(-3px);
+}
+
+.page-title {
+    font-size: 3.5rem;
+    color: var(--cyber-green);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(0, 255, 128, 0.5);
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0;
+}
+
+/* Grid Layout */
+.all-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+/* Detailed Project Cards */
+.detailed-project-card {
+    background: 
+        linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        linear-gradient(135deg, rgba(0, 128, 255, 0.03), rgba(255, 0, 128, 0.02));
+    backdrop-filter: blur(25px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.detailed-project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--megaman-blue), var(--energy-pink), var(--cyber-green));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.detailed-project-card:hover {
+    transform: translateY(-10px);
+    background: 
+        linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
+        linear-gradient(135deg, rgba(0, 128, 255, 0.05), rgba(255, 0, 128, 0.03));
+    border-color: rgba(0, 255, 128, 0.3);
+    box-shadow: 
+        0 20px 40px rgba(0, 128, 255, 0.1),
+        0 10px 25px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(0, 255, 128, 0.1);
+}
+
+.detailed-project-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Project Header */
+.project-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.project-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, var(--megaman-blue), var(--cyber-green));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.project-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.project-icon .fallback-icon {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.project-meta {
+    flex: 1;
+}
+
+.project-title {
+    font-size: 1.8rem;
+    color: var(--cyber-green);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.project-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.project-year {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+}
+
+.project-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.project-status[data-status*="producción"],
+.project-status[data-status*="production"] {
+    background: rgba(0, 255, 128, 0.2);
+    color: var(--cyber-green);
+    border: 1px solid rgba(0, 255, 128, 0.3);
+}
+
+.project-status[data-status*="completado"],
+.project-status[data-status*="completed"] {
+    background: rgba(0, 128, 255, 0.2);
+    color: var(--megaman-blue);
+    border: 1px solid rgba(0, 128, 255, 0.3);
+}
+
+.project-status[data-status*="desarrollo"],
+.project-status[data-status*="development"] {
+    background: rgba(255, 0, 128, 0.2);
+    color: var(--energy-pink);
+    border: 1px solid rgba(255, 0, 128, 0.3);
+}
+
+/* Project Descriptions */
+.project-description {
+    margin-bottom: 2rem;
+}
+
+.short-description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.full-description {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Technologies */
+.project-technologies {
+    margin-bottom: 2rem;
+}
+
+.tech-title {
+    color: var(--cyber-green);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    background: rgba(0, 128, 255, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.4rem 0.8rem;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(0, 128, 255, 0.3);
+}
+
+/* Actions */
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.mega-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.mega-button.primary {
+    background: linear-gradient(45deg, var(--cyber-green), #00ff80);
+    color: black;
+    border: none;
+}
+
+.mega-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 255, 128, 0.3);
+}
+
+.mega-button.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--cyber-green);
+    border: 1px solid rgba(0, 255, 128, 0.3);
+}
+
+.mega-button.secondary:hover {
+    background: rgba(0, 255, 128, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .all-projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .detailed-project-card {
+        padding: 2rem;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .project-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .project-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .all-projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .all-projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* Animation for liquid flow */
+@keyframes liquidFlow {
+    0%, 100% {
+        transform: translateX(-50px) translateY(-50px) rotate(0deg);
+    }
+    33% {
+        transform: translateX(0px) translateY(0px) rotate(120deg);
+    }
+    66% {
+        transform: translateX(50px) translateY(50px) rotate(240deg);
+    }
+}
