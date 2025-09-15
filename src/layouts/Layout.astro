@@ -20,6 +20,19 @@ const text = getPortafolioTextContent(lang);
 const finalTitle = title || `${text.hero.name} - ${text.hero.title}`;
 const finalDescription = description || text.hero.description;
 
+// Determine if we're on the homepage or a subpage
+const currentPath = Astro.url.pathname;
+const isHomepage = currentPath === '/' || currentPath === '/en';
+
+// Generate navigation URLs - always link to homepage sections from subpages
+const baseUrl = lang === 'en' ? '/en' : '/';
+const navUrls = {
+	home: isHomepage ? '#inicio' : `${baseUrl}#inicio`,
+	skills: isHomepage ? '#habilidades' : `${baseUrl}#habilidades`,
+	projects: isHomepage ? '#proyectos' : `${baseUrl}#proyectos`,
+	contact: isHomepage ? '#contacto' : `${baseUrl}#contacto`
+};
+
 // SEO and meta variables from textContent
 const siteName = text.hero.name;
 const siteUrl = text.seo.siteUrl;
@@ -72,10 +85,10 @@ const ogImage = `${siteUrl}${text.seo.ogImage}`;
 			<nav>
 				<div class="logo">{text.navigation.logo}</div>
 				<ul class="nav-links">
-					<li><a href="#inicio">{text.navigation.home}</a></li>
-					<li><a href="#habilidades">{text.navigation.skills}</a></li>
-					<li><a href="#proyectos">{text.navigation.projects}</a></li>
-					<li><a href="#contacto">{text.navigation.contact}</a></li>
+					<li><a href={navUrls.home}>{text.navigation.home}</a></li>
+					<li><a href={navUrls.skills}>{text.navigation.skills}</a></li>
+					<li><a href={navUrls.projects}>{text.navigation.projects}</a></li>
+					<li><a href={navUrls.contact}>{text.navigation.contact}</a></li>
 				</ul>
 				<LanguageSwitcher currentLang={lang} />
 			</nav>

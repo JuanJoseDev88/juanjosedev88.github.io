@@ -4,41 +4,35 @@ import { smoothScrollToSection } from './smoothScroll';
 import { updateActiveNavigation } from './activeNavigation';
 import { initializeContactForm } from './contactForm';
 
-// Initialize all portfolio effects
 export function initializePortfolioEffects() {
-    // Create particles
     createParticles();
-    
-    // Initialize contact form
-    initializeContactForm();
+        initializeContactForm();
 
-    // Add scroll events
     window.addEventListener('scroll', () => {
         updateEnergyBar();
         updateActiveNavigation();
     });
     
-    // Add click events to navigation links
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', (e: Event) => {
-            e.preventDefault();
             const target = e.currentTarget as HTMLAnchorElement;
-            
-            // Remove active class from all links
-            document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-            
-            // Add active class to clicked link
-            target.classList.add('active');
-            
             const href = target.getAttribute('href');
+            
+            // Only prevent default and handle smooth scrolling for anchor-only links
+            // This allows normal navigation for full URLs like "/#inicio" or "/en#inicio"
             if (href && href.startsWith('#')) {
+                e.preventDefault();
+                
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                
+                target.classList.add('active');
+                
                 const targetId = href.substring(1);
                 smoothScrollToSection(targetId);
             }
         });
     });
     
-    // Add click events to hero buttons
     document.querySelectorAll('.hero .mega-button').forEach(button => {
         button.addEventListener('click', (e: Event) => {
             const target = e.currentTarget as HTMLAnchorElement;
@@ -51,6 +45,5 @@ export function initializePortfolioEffects() {
         });
     });
     
-    // Initialize energy bar
     updateEnergyBar();
 }
