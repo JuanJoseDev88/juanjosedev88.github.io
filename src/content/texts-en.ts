@@ -111,6 +111,10 @@ export const portafolioTextContentEn: PortafolioTextContent = {
       email: "Email",
       message: "Message",
       submit: "SEND MESSAGE"
+    },
+    messages: {
+      success: "Thanks for your message! I'll get back to you soon.",
+      error: "Oops! There was a problem sending your message. Please try again."
     }
   },
   footer: {

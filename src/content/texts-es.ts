@@ -43,6 +43,10 @@ export interface PortafolioTextContent {
       message: string;
       submit: string;
     };
+    messages: {
+      success: string;
+      error: string;
+    };
   };
   footer: {
     copyright: string;
@@ -162,6 +166,10 @@ export const portafolioTextContent: PortafolioTextContent = {
       email: "Email",
       message: "Mensaje",
       submit: "ENVIAR MENSAJE"
+    },
+    messages: {
+      success: "¡Gracias por tu mensaje! Te responderé pronto.",
+      error: "Oops! Hubo un problema enviando tu mensaje. Inténtalo de nuevo."
     }
   },
   footer: {
