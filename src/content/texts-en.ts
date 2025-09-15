@@ -88,7 +88,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         link: "https://info.hyphensolutions.com/products/",
         technologies: ["Flutter", "MySQL", "Offline sync", "PDF reports", "Geolocation"],
         year: "2025",
-        status: "Completed"
+        status: "In production"
       },
       {
         icon: "/logos/paysafeLogo.png",
@@ -112,7 +112,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         link: "https://www.coughdrop.com/",
         technologies: ["Ember.js", "Ruby on Rails", "PostgreSQL", "AWS", "Cordova", "Legacy modernization"],
         year: "2025",
-        status: "Completed"
+        status: "In production"
       },
       {
         icon: "🌐",
@@ -126,7 +126,21 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         technologies: ["Astro", "TypeScript", "CSS3", "Animations", "Particles", "i18n"],
         year: "2025",
         status: "In development"
+      },
+      {
+        icon: "🌐",
+        title: "IVS streaming Player",
+        description: "POC streaming player for IVS",
+        fullDescription: "A POC streaming player for flutter using de native IVS SDK",
+        tags: ["Astro", "TypeScript", "CSS", "Responsive"],
+        buttonText: "VIEW CODE",
+        link: "https://dev-wizard.hashnode.dev/building-a-cross-platform-video-streaming-app-with-flutter-and-aws-ivs",
+        githubLink: "https://github.com/JuanJoseDev88/ivs_player-main",
+        technologies: ["Flutter", "Dart", "Kotlin", "Swift", "IVS SDK"],
+        year: "2025",
+        status: "Completed"
       }
+
     ]
   },
   contact: {

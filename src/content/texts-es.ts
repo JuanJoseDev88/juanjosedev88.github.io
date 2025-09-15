@@ -161,7 +161,7 @@ export const portafolioTextContent: PortafolioTextContent = {
         link: "https://info.hyphensolutions.com/products/",
         technologies: ["Flutter", "MySQL", "Sincronización offline", "Reportes PDF", "Geolocalización"],
         year: "2023-2024",
-        status: "Completado"
+        status: "En producción"
       },
       {
         icon: "/logos/paysafeLogo.png",
@@ -185,7 +185,7 @@ export const portafolioTextContent: PortafolioTextContent = {
         link: "https://www.coughdrop.com/",
         technologies: ["Ember.js", "Ruby on Rails", "PostgreSQL", "AWS", "Cordova", "Modernización legacy"],
         year: "2025",
-        status: "Completado"
+        status: "En producción"
       },
       {
         icon: "🌐",
@@ -199,6 +199,19 @@ export const portafolioTextContent: PortafolioTextContent = {
         technologies: ["Astro", "TypeScript", "CSS3", "Animaciones", "Partículas", "i18n"],
         year: "2025",
         status: "En desarrollo"
+      },
+      {
+        icon: "🌐",
+        title: "IVS streaming Player",
+        description: "POC streaming player usando IVS",
+        fullDescription: "Una POC para un streaming player en flutter usando el sdk nativo de AWS IVS, implementación con flutter platform channels",
+        tags: ["Flutter", "Dart", "Kotlin", "Swift", "IVS SDK"],
+        buttonText: "VIEW CODE",
+        link: "https://dev-wizard.hashnode.dev/guia-para-crear-una-app-de-streaming-multiplataforma-usando-aws-ivs",
+        githubLink: "https://github.com/JuanJoseDev88/ivs_player-main",
+        technologies: ["Flutter", "Dart", "Kotlin", "Swift", "IVS SDK"],
+        year: "2025",
+        status: "Completed"
       }
     ]
   },
