@@ -13,7 +13,7 @@ const text = getPortafolioTextContent(lang).projects;
 	<div class="projects-container">
 		<h2 class="section-title">{text.title}</h2>
 		
-		<div class="projects-carousel">
+		<div class="projects-grid">
 			{text.projectCards.map(project => (
 				<div class="project-card flip-card" tabindex="0" role="button" aria-pressed="false" aria-label={"Toggle " + project.title + " details"}>
 					<div class="flip-card-inner">
@@ -46,15 +46,6 @@ const text = getPortafolioTextContent(lang).projects;
 					</div>
 				</div>
 			))}
-		</div>
-		
-		<div class="carousel-nav">
-			<button class="carousel-btn" onclick="document.querySelector('.projects-carousel').scrollBy({left: -370, behavior: 'smooth'})">
-				← Previous
-			</button>
-			<button class="carousel-btn" onclick="document.querySelector('.projects-carousel').scrollBy({left: 370, behavior: 'smooth'})">
-				Next →
-			</button>
 		</div>
 	</div>
 </section>
