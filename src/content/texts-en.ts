@@ -75,7 +75,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         buttonText: "VIEW PROJECT",
         link: "https://www.bancolombia.com/centro-de-ayuda/canales/app-bancolombia",
         technologies: ["Flutter", "AWS", "Biometrics", "Banking security", "REST API"],
-        year: "2023-2024",
+        year: "2022-2023",
         status: "In production"
       },
       {
@@ -87,7 +87,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         buttonText: "VIEW PROJECT",
         link: "https://info.hyphensolutions.com/products/",
         technologies: ["Flutter", "MySQL", "Offline sync", "PDF reports", "Geolocation"],
-        year: "2023",
+        year: "2025",
         status: "Completed"
       },
       {
@@ -99,7 +99,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         buttonText: "VIEW PROJECT",
         link: "https://play.google.com/store/apps/details?id=at.paysafecard.android&hl=en",
         technologies: ["Android", "Kotlin", "Venmo SDK", "PCI DSS", "Payment security"],
-        year: "2022-2023",
+        year: "2024",
         status: "In production"
       },
       {
@@ -111,7 +111,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         buttonText: "VIEW PROJECT",
         link: "https://www.coughdrop.com/",
         technologies: ["Ember.js", "Ruby on Rails", "PostgreSQL", "AWS", "Cordova", "Legacy modernization"],
-        year: "2022",
+        year: "2025",
         status: "Completed"
       },
       {
@@ -124,7 +124,7 @@ export const portafolioTextContentEn: PortafolioTextContent = {
         link: "https://github.com/juanp88/portfolio",
         githubLink: "https://github.com/juanp88/portfolio",
         technologies: ["Astro", "TypeScript", "CSS3", "Animations", "Particles", "i18n"],
-        year: "2024",
+        year: "2025",
         status: "In development"
       }
     ]
